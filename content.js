@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     isEnabled = event.altKey && event.code === "KeyG" ? !isEnabled: isEnabled
 
-    print(isEnabled)
+    console.log(isEnabled)
     
 
     simulateKeyPress(keyboardChanges[event.code] ?? event.code)
