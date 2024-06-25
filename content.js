@@ -37,20 +37,18 @@ chrome.runtime.onInstalled.addListener(() => { // This means whenever the extens
 // This event listener waits until the entire DOM content is loaded. No clue what that is 
 document.addEventListener('DOMContentLoaded', function() {
 
-  // This event listener listens for any click event on the webpage.
+  // This event listener listens for when a key is clicked
   document.addEventListener('keydown', function(event) {
 
       isEnabled = event.altKey && event.code === "KeyG" ? !isEnabled: isEnabled
     
       event.preventDefault();
-      simulateKeyPress(keyboardChanges[event.code])
+      simulateKeyPress(keyboardChanges[event.code] ?? event.code)
       
       // Logs the pressed button element to the console.
       console.log('Button pressed:', event.target);
   });
 });
-
-
 
 function simulateKeyPress(keyCode) {
   const event = new KeyboardEvent('keydown', {
