@@ -30,7 +30,7 @@ const keyboardChanges = {
 var isEnabled = true
 
 chrome.runtime.onInstalled.addListener(() => { // This means whenever the extension is installed
-
+  
 });
 
 chrome.action.onClicked.addListener(async (tab) => { // This runs whenever _excecute_action runs in manifest.json, or when a tab is clicked
@@ -43,16 +43,15 @@ chrome.action.onClicked.addListener(async (tab) => { // This runs whenever _exce
 document.addEventListener('DOMContentLoaded', function() {
 
   // This event listener listens for any click event on the webpage.
-  document.addEventListener('click', function(event) {
+  document.addEventListener('keydown', function(event) {
+
+      isEnabled = event.altKey && event.code === "KeyG" ? !isEnabled: isEnabled
     
-    // This condition checks if the clicked element is a button.
-    if (event.target.tagName === 'BUTTON' && keyboardChanges[event.code] != undefined) {
       event.preventDefault();
       simulateKeyPress(keyboardChanges[event.code])
       
       // Logs the pressed button element to the console.
       console.log('Button pressed:', event.target);
-    }
   });
 });
 
