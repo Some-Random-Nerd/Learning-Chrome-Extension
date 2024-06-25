@@ -33,11 +33,6 @@ chrome.runtime.onInstalled.addListener(() => { // This means whenever the extens
   
 });
 
-chrome.action.onClicked.addListener(async (tab) => { // This runs whenever _excecute_action runs in manifest.json, or when a tab is clicked
-
-});
-
-
 
 // This event listener waits until the entire DOM content is loaded. No clue what that is 
 document.addEventListener('DOMContentLoaded', function() {
