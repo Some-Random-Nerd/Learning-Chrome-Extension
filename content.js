@@ -39,14 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // This event listener listens for when a key is clicked
   document.addEventListener('keydown', function(event) {
-
-      isEnabled = event.altKey && event.code === "KeyG" ? !isEnabled: isEnabled
+    event.preventDefault();
     
-      event.preventDefault();
-      simulateKeyPress(keyboardChanges[event.code] ?? event.code)
+    isEnabled = event.altKey && event.code === "KeyG" ? !isEnabled: isEnabled
+    
+
+    simulateKeyPress(keyboardChanges[event.code] ?? event.code)
       
-      // Logs the pressed button element to the console.
-      console.log('Button pressed:', event.target);
+    // Logs the pressed button element to the console.
+    console.log('Button pressed:', event.target);
   });
 });
 
