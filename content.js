@@ -29,11 +29,6 @@ const keyboardChanges = {
 }
 var isEnabled = true
 
-chrome.runtime.onInstalled.addListener(() => { // This means whenever the extension is installed
-  
-});
-
-
 // This event listener waits until the entire DOM content is loaded. No clue what that is 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -42,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
     
     isEnabled = event.altKey && event.code === "KeyG" ? !isEnabled: isEnabled
+
+    print(isEnabled)
     
 
     simulateKeyPress(keyboardChanges[event.code] ?? event.code)
